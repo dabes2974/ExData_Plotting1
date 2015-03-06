@@ -1,9 +1,10 @@
 
+
 # set wd
  setwd("I:/Tmp/R/ExData_Plotting1")
 getwd()
 
-# call  library
+# cal  library
 
 require(dplyr); require(lubridate); library(ggplot2)
 
@@ -15,6 +16,10 @@ X <- X %>% 	mutate(Date = dmy(Date)) %>%
 			filter(Date%in%ymd("2007-02-01","2007-02-02")) %>%
 			mutate(Time = ymd_hms(paste(Date, Time, sep="-")))
 			
+			
+# explore data
+dim(X)
+glimpse(X)
 
 ####### save in R format to recall it quickly
 # saveRDS(X,file = "data/household_power_consumption.rds")
@@ -22,13 +27,13 @@ X <- X %>% 	mutate(Date = dmy(Date)) %>%
 
 
 
+
 # define scale in pixels
-png( file = "png/plot1.png", width =480, height = 480, units = "px", bg = "transparent")
+png( file = "png/plot2.png", width =480, height = 480, units = "px", bg = "transparent")
 
 # plot
-with(X,hist(Global_active_power, col ="red", main = "Global Active Power", xlab ="Global Active Power (kilowatts)"))
+with(X,plot(Time, Global_active_power, xlab = "", ylab = "Global Active Power (kilowatts)", type = "l"))
 
-# save file
 
 # close device
 dev.off()
