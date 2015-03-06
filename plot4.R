@@ -28,7 +28,7 @@ glimpse(X)
 
 
 
-png("png/plot4.png", width = 480, height = 480, units = "px", bg = "transparent")
+png("plot4.png", width = 480, height = 480, units = "px", bg = "transparent")
 
 par(mfrow = c(2, 2))
 ylimit <- range(c(X$Sub_metering_1, X$Sub_metering_2, X$Sub_metering_3))

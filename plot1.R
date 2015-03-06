@@ -23,7 +23,7 @@ X <- X %>% 	mutate(Date = dmy(Date)) %>%
 
 
 # define scale in pixels
-png( file = "png/plot1.png", width =480, height = 480, units = "px", bg = "transparent")
+png( file = "plot1.png", width =480, height = 480, units = "px", bg = "transparent")
 
 # plot
 with(X,hist(Global_active_power, col ="red", main = "Global Active Power", xlab ="Global Active Power (kilowatts)"))

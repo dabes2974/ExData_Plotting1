@@ -29,21 +29,16 @@ glimpse(X)
 
 
 # define scale in pixels
-png( file = "png/plot3.png", width =480, height = 480, units = "px", bg = "transparent")
+png( file = "plot2.png", width =480, height = 480, units = "px", bg = "transparent")
 
-ylimit <- range(c(X$Sub_metering_1, X$Sub_metering_2, X$Sub_metering_3))
+# plot
+with(X,plot(Time, Global_active_power, xlab = "", ylab = "Global Active Power (kilowatts)", type = "l"))
 
-with( X, plot(Time, Sub_metering_1, xlab = "", ylab = "Energy sub metering", type = "l", ylim = ylimit, col = "black"))
 
-par(new = TRUE)
-with( X, plot(Time, Sub_metering_2, xlab = "", axes = FALSE, ylab = "", type = "l", ylim = ylimit, col = "red"))
-
-par(new = TRUE)
-with( X, plot(Time,Sub_metering_3, xlab = "", axes = FALSE, ylab = "", type = "l", ylim = ylimit, col = "blue"))
-
-legend("topright",legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),lty = c(1,1,1),col = c("black", "red", "blue"))
-
+# close device
 dev.off()
+
+
 
 
 
