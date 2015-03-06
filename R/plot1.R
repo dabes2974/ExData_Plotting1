@@ -28,11 +28,14 @@ with(X, hist(Global_active_power, col ="red", main = "Global Active Power", xlab
 
 # save plot 1
 
+png( width = 480, height = 480)
+
 dev.copy(png, file = "png/plot1.png")
+
+
 ## Copy my plot to a PNG file
-dev.off() 
 
-
+dev.off()
 
 
 
