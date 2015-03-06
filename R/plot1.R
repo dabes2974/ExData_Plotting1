@@ -9,25 +9,39 @@ getwd()
 require(dplyr); require(lubridate)
 
 X <- as.tbl(read.table("./data/household_power_consumption.txt", sep=";", stringsAsFactors = FALSE, header  = TRUE, na.strings = "?"))
+####### filter data from 2007-02-01 and 2007-02-02 with lubridate
+
+X <- X %>% filter(dmy(Date)%in%ymd("2007-02-01","2007-02-02"))
 
 # explore data
 dim(X)
 glimpse(X)
 
-####### save in R format 
+####### save in R format to recall it quickly
 # saveRDS(X,file = "data/household_power_consumption.rds")
 # X <-  readRDS("data/household_power_consumption.rds")
 
-####### filter data from 2007-02-01 and 2007-02-02
 
-X <- X %>% filter(dmy(Date)%in%ymd("2007-02-01","2007-02-02"))
+# create plot 1 hist()
 
- glimpse(X)
- 
- 
 with(X, hist(Global_active_power, col ="red", main = "Global Active Power", xlab ="Global Active Power (kilowatts)"))
 
-dev.copy(png, file = "plot1.png"
-)
+# save plot 1
+
+dev.copy(png, file = "png/plot1.png")
 ## Copy my plot to a PNG file
 dev.off() 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
